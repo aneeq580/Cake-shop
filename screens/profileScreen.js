@@ -5,74 +5,77 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safe}>
-      {/* Profile Header */}
-      <View style={styles.profileHeader}>
-        <Image
-          source={require('../assets/profile.png')} // add any image
-          style={styles.profileImage}
-        />
-        <Text style={styles.userName}>John Doe</Text>
-        <Text style={styles.userEmail}>john@example.com</Text>
-      </View>
-
-      {/* Small Cards */}
-      <View style={styles.cardsRow}>
-        <View style={styles.smallCard}>
-          <Text style={styles.cardNumber}>12</Text>
-          <Text style={styles.cardLabel}>Favorites</Text>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Profile Header */}
+        <View style={styles.profileHeader}>
+          <Image
+            source={require('../assets/profile.png')} // add any image
+            style={styles.profileImage}
+          />
+          <Text style={styles.userName}>John Doe</Text>
+          <Text style={styles.userEmail}>john@example.com</Text>
         </View>
 
-        <View style={styles.smallCard}>
-          <Text style={styles.cardNumber}>5</Text>
-          <Text style={styles.cardLabel}>Orders</Text>
+        {/* Small Cards */}
+        <View style={styles.cardsRow}>
+          <TouchableOpacity style={styles.smallCard} onPress={() => navigation.navigate('Favorites')}>
+            <Text style={styles.cardNumber}>12</Text>
+            <Text style={styles.cardLabel}>Favorites</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallCard} onPress={() => {}}>
+            <Text style={styles.cardNumber}>5</Text>
+            <Text style={styles.cardLabel}>Orders</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallCard} onPress={() => {}}>
+            <Text style={styles.cardNumber}>3</Text>
+            <Text style={styles.cardLabel}>Support</Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.smallCard}>
-          <Text style={styles.cardNumber}>3</Text>
-          <Text style={styles.cardLabel}>Support</Text>
-        </View>
-      </View>
-
-      {/* Menu Options */}
-      <View style={styles.menu}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Account Information</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Order History</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
-
-            <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Notification</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Settings</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
+        {/* Menu Options */}
+        <View style={styles.menu}>
+          <TouchableOpacity style={styles.menuItem}>
+            <Text style={styles.menuText}>Account Information</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>About App</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
+            <Text style={styles.menuText}>Order History</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.menuItem, {backgroundColor:'#f7b8d8ff',}]}>
-          <Text style={[styles.logtxt, ]}>Logout</Text>
-          <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
-        </TouchableOpacity>
-      </View>
+              <TouchableOpacity style={styles.menuItem}>
+            <Text style={styles.menuText}>Notification</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.menuItem}>
+            <Text style={styles.menuText}>Settings</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
+
+            <TouchableOpacity style={styles.menuItem}>
+            <Text style={styles.menuText}>About App</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.menuItem, {backgroundColor:'#f7b8d8ff',}]}>
+            <Text style={[styles.logtxt, ]}>Logout</Text>
+            <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

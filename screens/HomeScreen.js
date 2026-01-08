@@ -9,6 +9,8 @@ import {
   TextInput,
 } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardAvoidingView, Platform } from "react-native";
+
 
 
 
@@ -46,8 +48,15 @@ function DessertCard({ item, navigation }) {
 
 export default function HomeScreen({ navigation, onLogout }) {
   const [search, setSearch] = useState("");
+const filteredDesserts = DESSERTS.filter(item =>
+  item.name.toLowerCase().includes(search.toLowerCase())
+);
 
   return (
+    <KeyboardAvoidingView
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    style={{ flex: 1 }}
+  >
    <View style={{ flex: 1, backgroundColor: "#f9f9f9ff" }}>
       <SafeAreaView edges={['top']} style={styles.headerSafe}>
       {/* Header with Logout Button */}
@@ -59,7 +68,8 @@ export default function HomeScreen({ navigation, onLogout }) {
       </View>
     </SafeAreaView>
       <FlatList
-  data={DESSERTS}
+  data={filteredDesserts}
+
   keyExtractor={(i) => i.id}
   numColumns={2}
   columnWrapperStyle={styles.columnWrapper}
@@ -81,7 +91,7 @@ export default function HomeScreen({ navigation, onLogout }) {
             <View style={styles.quoteContainer}>
               <View style={styles.quoteTextWrap}>
                 <Text style={styles.quote}>
-                  Life is short, {'\n'}eat dessert first.
+                  Life is short,{'\n'}eat dessert first.
                 </Text>
               </View>
 
@@ -101,6 +111,7 @@ contentInsetAdjustmentBehavior="never"
 
       />
     </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -154,7 +165,7 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   quoteContainer: {
-    height: 120,
+    height: 160,
     backgroundColor: "#f11885ff",
     borderRadius: 12,
     padding: 16,

@@ -21,7 +21,7 @@ function LoginScreen({ navigation }) {
       Alert.alert("Validation Error", "Password is required");
     } else if (email === "admin" && password === "123456") {
       Alert.alert("Success", "Login successful!");
-      navigation.navigate("Home");
+      navigation.replace("Main");
     } else {
       Alert.alert("Error", "Invalid username or password");
     }

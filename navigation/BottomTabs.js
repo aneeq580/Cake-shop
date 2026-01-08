@@ -1,13 +1,35 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeStack from './HomeStack';
 import CartScreen from '../screens/CartScreen';
 import profileScreen from '../screens/profileScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
+import ProductDetailScreen from '../screens/productDetails';
+import CheckoutScreen from '../screens/CheckoutScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function FavoritesStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="FavoritesMain" component={FavoritesScreen} />
+      <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function CartStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="CartMain" component={CartScreen} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function BottomTabs() {
   return (
@@ -29,8 +51,8 @@ export default function BottomTabs() {
       })}
     >
       <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Favorites" component={FavoritesScreen} />
-      <Tab.Screen name="Cart" component={CartScreen} />
+      <Tab.Screen name="Favorites" component={FavoritesStack} />
+      <Tab.Screen name="Cart" component={CartStack} />
       <Tab.Screen name="Profile" component={profileScreen} />
     </Tab.Navigator>
   );

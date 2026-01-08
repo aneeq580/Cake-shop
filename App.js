@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from "expo-font";
 import BottomTabs from './navigation/BottomTabs';
+import LoginScreen from './screens/LoginScreen';
+
+const Stack = createNativeStackNavigator();
 import { StatusBar } from 'expo-status-bar';
 
 
@@ -21,7 +25,10 @@ export default function App() {
     <SafeAreaProvider>
       <StatusBar style="dark" backgroundColor="#f11885ff" />
       <NavigationContainer>
-        <BottomTabs />
+        <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Main" component={BottomTabs} />
+        </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
