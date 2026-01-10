@@ -42,17 +42,6 @@ function ProfileStack() {
   );
 }
 
-
-function ProfileStack() {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ProfileMain" component={profileScreen} />
-      <Stack.Screen name="AccountInfo" component={AccountScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
-    </Stack.Navigator>
-  );
-}
-
 export default function BottomTabs() {
   return (
     <Tab.Navigator
