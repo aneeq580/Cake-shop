@@ -12,7 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
-
 const ProfileScreen = ({ navigation }) => {
   const { userData } = useContext(UserContext);
   return (
@@ -48,7 +47,7 @@ const ProfileScreen = ({ navigation }) => {
 
         {/* Menu Options */}
         <View style={styles.menu}>
-          <TouchableOpacity 
+           <TouchableOpacity 
             style={styles.menuItem}
             onPress={() => navigation.navigate('AccountInfo')}
           >
@@ -66,7 +65,7 @@ const ProfileScreen = ({ navigation }) => {
             <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
           </TouchableOpacity>
 
-          <TouchableOpacity 
+           <TouchableOpacity 
             style={styles.menuItem}
             onPress={() => navigation.navigate('Settings')}
           >
@@ -79,10 +78,10 @@ const ProfileScreen = ({ navigation }) => {
             <Ionicons name="chevron-forward" size={20} color="#7a818dff" />
           </TouchableOpacity>
 
-          <TouchableOpacity 
-            style={[styles.menuItem, 
+                    <TouchableOpacity 
+            style={[styles.menuItem,
             // {backgroundColor:'#f7b8d8ff',}
-            ]}
+           ]}
             onPress={() => navigation.navigate('Login')}
           >
             <Text style={[styles.menuText, { color: '#f11885c8' }]}>Logout</Text>

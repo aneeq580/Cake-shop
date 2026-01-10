@@ -6,9 +6,9 @@ import { useFonts } from "expo-font";
 import BottomTabs from './navigation/BottomTabs';
 import LoginScreen from './screens/LoginScreen';
 import { UserProvider } from './context/UserContext';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createNativeStackNavigator();
-import { StatusBar } from 'expo-status-bar';
 
 
 export default function App() {

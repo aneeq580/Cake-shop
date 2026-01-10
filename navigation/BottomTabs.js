@@ -32,6 +32,16 @@ function CartStack() {
     </Stack.Navigator>
   );
 }
+function ProfileStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="ProfileMain" component={profileScreen} />
+      <Stack.Screen name="AccountInfo" component={AccountScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+    </Stack.Navigator>
+  );
+}
+
 
 function ProfileStack() {
   return (
