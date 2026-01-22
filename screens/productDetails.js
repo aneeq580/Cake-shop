@@ -62,7 +62,7 @@ export default function ProductDetailScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#f9f9f9ff',
+    backgroundColor: '#F5E6D3',
   },
   banner: {
     flexDirection: 'row',
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     fontFamily: 'Bold',
-    color: '#FF6F61ff',
+    color: '#Ff6f61',
     marginBottom: 16,
   },
   sectionTitle: {
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 16,
     right: 16,
-    backgroundColor: '#FF6F61ff',
+    backgroundColor: '#Ff6f61',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',

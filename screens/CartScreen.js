@@ -38,7 +38,7 @@ function CartItem({ item }) {
 // export default function CartScreen() {
 export default function CartScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, backgroundColor: "#f9f9f9ff" }}>
+    <View style={{ flex: 1, backgroundColor: "#F5E6D3" }}>
       <SafeAreaView edges={['top']} style={styles.headerSafe}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Cart</Text>
@@ -67,7 +67,7 @@ export default function CartScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   headerSafe: {
-    backgroundColor: "#f9f9f9ff",
+    backgroundColor: "#F5E6D3",
   },
   header: {
     flexDirection: "row",
@@ -75,12 +75,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: "#f9f9f9ff",
+    backgroundColor: "#F5E6D3",
   },
   headerTitle: {
     fontSize: 28,
     fontFamily: "Bold",
+<<<<<<< HEAD
     color: "#FF6F61ff",
+=======
+    color: "#Ff6f61",
+>>>>>>> d6a76449b27d3c49b16ad3dd8a5a4336578f611f
   },
   card: {
     backgroundColor: "#fff",
@@ -121,7 +125,11 @@ const styles = StyleSheet.create({
   cardPrice: {
     fontSize: 16,
     fontFamily: "Bold",
+<<<<<<< HEAD
     color: "#FF6F61ff",
+=======
+    color: "#Ff6f61",
+>>>>>>> d6a76449b27d3c49b16ad3dd8a5a4336578f611f
     marginBottom: 4,
   },
   cardQty: {
@@ -148,12 +156,20 @@ const styles = StyleSheet.create({
   totalLabel: {
     fontSize: 18,
     fontFamily: "Bold",
+<<<<<<< HEAD
     color: "#FF6F61ff",
+=======
+    color: "#Ff6f61",
+>>>>>>> d6a76449b27d3c49b16ad3dd8a5a4336578f611f
     textAlign: "right",
   },
   checkoutBtn: {
     marginTop: 8,
+<<<<<<< HEAD
     backgroundColor: "#FF6F61ff",
+=======
+    backgroundColor: "#Ff6f61",
+>>>>>>> d6a76449b27d3c49b16ad3dd8a5a4336578f611f
     borderRadius: 10,
     paddingVertical: 10,
     alignItems: "center",
@@ -170,7 +186,11 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     borderRadius: 13,
+<<<<<<< HEAD
     backgroundColor: "#FF6F61ff",
+=======
+    backgroundColor: "#Ff6f61",
+>>>>>>> d6a76449b27d3c49b16ad3dd8a5a4336578f611f
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "#000",
