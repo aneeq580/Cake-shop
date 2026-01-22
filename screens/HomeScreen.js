@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
-  FlatList,
+  ScrollView,
   Image,
   TextInput,
 } from "react-native";
+
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAvoidingView, Platform } from "react-native";
 
 
 
@@ -52,17 +52,24 @@ function DessertCard({ item, navigation }) {
 
 
 export default function HomeScreen({ navigation, onLogout }) {
-  const [search, setSearch] = useState("");
-const filteredDesserts = DESSERTS.filter(item =>
-  item.name.toLowerCase().includes(search.toLowerCase())
-);
+ 
+const [searchedValue, setSearchValue] = useState("");
+  const [products, setProducts] = useState(DESSERTS);
 
+  useEffect(() => {
+    if (searchedValue.trim() === "") {
+      setProducts(DESSERTS);
+    } else {
+      const filteredProducts = DESSERTS.filter((x) => {
+        return x.name.toLowerCase().includes(searchedValue.toLowerCase());
+      });
+      setProducts(filteredProducts);
+    }
+  }, [searchedValue]);
   return (
-    <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-    style={{ flex: 1 }}
-  >
-   <View style={{ flex: 1, backgroundColor: "#f9f9f9ff" }}>
+    
+    
+   <View style={{ flex: 1, backgroundColor: "#F5E6D3" }}>
       <SafeAreaView edges={['top']} style={styles.headerSafe}>
       {/* Header with Logout Button */}
       <View style={styles.header}>
@@ -70,60 +77,61 @@ const filteredDesserts = DESSERTS.filter(item =>
         <TouchableOpacity style={styles.logoutBtn} onPress={onLogout}>
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
+        
       </View>
+      {/* Search Bar */}
+  <TextInput
+    style={styles.searchBar}
+    placeholder="Search cakes..."
+    value={searchedValue}
+    onChangeText={setSearchValue}
+    placeholderTextColor="#575757ff"
+  />
     </SafeAreaView>
-      <FlatList
-  data={filteredDesserts}
-
-  keyExtractor={(i) => i.id}
-  numColumns={2}
-  columnWrapperStyle={styles.columnWrapper}
-  contentContainerStyle={styles.list}
-  keyboardShouldPersistTaps="always"
-  ListHeaderComponent={() => (
-
-          <View style={styles.headerContent}>
-            {/* Search Bar */}
-            <TextInput
-              style={styles.searchBar}
-              placeholder="Search cakes..."
-              value={search}
-              onChangeText={setSearch}
-              placeholderTextColor="#575757ff"
-            />
-
-            {/* Quote Container with right-side dessert image */}
-            <View style={styles.quoteContainer}>
-              <View style={styles.quoteTextWrap}>
-                <Text style={styles.quote}>
-                  Life is short,{'\n'}eat dessert first.
-                </Text>
-              </View>
-
-              <Image
-                source={require('../assets/scoop.png')}
-                style={styles.quoteImage}
-              />
-            </View>
-
-            <Text style={styles.sectionTitle}>Popular Desserts</Text>
-          </View>
-        )}
-        renderItem={({ item }) => (
-  <DessertCard item={item} navigation={navigation} />
-)}
-contentInsetAdjustmentBehavior="never"
-
-      />
+<ScrollView
+  showsVerticalScrollIndicator={false}
+  contentContainerStyle={styles.headerContent}
+>
+   {/* Quote Section */}
+  <View style={styles.quoteContainer}>
+    <View style={styles.quoteTextWrap}>
+      <Text style={styles.quote}>
+        Life is short,{'\n'}eat dessert first.
+      </Text>
     </View>
-    </KeyboardAvoidingView>
-  );
-}
 
+    <Image
+      source={require("../assets/scoop.png")}
+      style={styles.quoteImage}
+    />
+  </View>
+
+  <Text style={styles.sectionTitle}>Popular Desserts</Text>
+
+          
+  
+
+  {/* Products */}
+  <View style={styles.grid}>
+  {products.map((item) => (
+    <DessertCard key={item.id} item={item} navigation={navigation} />
+  ))}
+</View>
+
+
+ 
+</ScrollView>
+
+        
+    </View>
+  
+  );
+
+}
 const styles = StyleSheet.create({
   // safe: { flex: 1, backgroundColor: "#f9f9f9ff" },
   headerSafe: {
-  backgroundColor: "#f9f9f9ff",
+  backgroundColor: "#F5E6D3",
 },
 
   header: {
@@ -132,17 +140,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: "#f9f9f9ff",
+    backgroundColor: "#F5E6D3",
     // borderBottomWidth: 1,
-    borderBottomColor: "#f9f9f9ff",
+    borderBottomColor: "#F5E6D3",
   },
   headerTitle: {
     fontSize: 24,
     fontFamily:"Bold",
-    color: "#f11885ff",
+    color: "#Ff6f61",
   },
   logoutBtn: {
-    backgroundColor: "#f11885ff",
+    backgroundColor: "#Ff6f61",
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 6,
@@ -161,21 +169,23 @@ const styles = StyleSheet.create({
   searchBar: {
     backgroundColor: "#f7f7f784",
     borderWidth: 1.5,
-    borderColor: "#f11885ff",
+    borderColor: "#Ff6f61",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 16,
     fontFamily:"Regular",
     marginBottom: 10,
+    marginHorizontal: 16,
     color: "#000",
   },
   quoteContainer: {
     height: 130,
     // width:  '100%',
-    backgroundColor: "#f11885ff",
+    backgroundColor: "#Ff6f61",
     borderRadius: 12,
     padding: 14,
+  
     marginBottom: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -209,8 +219,14 @@ const styles = StyleSheet.create({
     fontFamily:"SemiBold",
     // fontWeight: "700",
     marginBottom: 1,
+  
     color: "#1f2937",
   },
+  grid: {
+  flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+},
   list: {
   paddingHorizontal: 8,
   paddingBottom: 8, // or 0
@@ -222,17 +238,19 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   card: {
-    flex: 0.48,
-    backgroundColor: "#fffdfdff",
-    borderRadius: 12,
-    padding: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 3,
-    elevation: 5,
-    position: "relative", // allow absolute positioned children inside
-  },
+  width: "48%",          // 🔥 THIS is the real fix
+  backgroundColor: "#fffdfdff",
+  borderRadius: 12,
+  padding: 12,
+  marginBottom: 12,
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.08,
+  shadowRadius: 3,
+  elevation: 5,
+  position: "relative",
+}
+,
   thumb: {
     width: "100%",
     height: 100,
@@ -258,7 +276,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily:"Bold",
     // fontWeight: "700",
-    color: "#f11885ff",
+    color: "#Ff6f61",
   },
 
   /* New styles for add (plus) button */
@@ -269,7 +287,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 18,
-    backgroundColor: "#f11885ff",
+    backgroundColor: "#Ff6f61",
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "#000",
@@ -284,4 +302,5 @@ const styles = StyleSheet.create({
     fontFamily:"SemiBold",
     lineHeight: 22,
   },
-});
+})
+;

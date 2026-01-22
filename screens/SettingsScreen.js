@@ -34,7 +34,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <View style={styles.settingItem}>
             <View style={styles.settingContent}>
-              <Ionicons name="notifications-outline" size={24} color="#f11885ff" />
+              <Ionicons name="notifications-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Push Notifications</Text>
                 <Text style={styles.settingDescription}>Receive order and promotion updates</Text>
@@ -43,14 +43,14 @@ const SettingsScreen = ({ navigation }) => {
             <Switch
               value={notifications}
               onValueChange={setNotifications}
-              trackColor={{ false: '#e5e7eb', true: '#f11885ff' }}
+              trackColor={{ false: '#e5e7eb', true: '#Ff6f61' }}
               thumbColor="white"
             />
           </View>
 
           <View style={styles.settingItem}>
             <View style={styles.settingContent}>
-              <Ionicons name="mail-outline" size={24} color="#f11885ff" />
+              <Ionicons name="mail-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Email Updates</Text>
                 <Text style={styles.settingDescription}>Get promotional emails and newsletters</Text>
@@ -59,7 +59,7 @@ const SettingsScreen = ({ navigation }) => {
             <Switch
               value={emailUpdates}
               onValueChange={setEmailUpdates}
-              trackColor={{ false: '#e5e7eb', true: '#f11885ff' }}
+              trackColor={{ false: '#e5e7eb', true: '#Ff6f61' }}
               thumbColor="white"
             />
           </View>
@@ -71,7 +71,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <View style={styles.settingItem}>
             <View style={styles.settingContent}>
-              <Ionicons name="moon-outline" size={24} color="#f11885ff" />
+              <Ionicons name="moon-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Dark Mode</Text>
                 <Text style={styles.settingDescription}>Use dark theme for the app</Text>
@@ -80,7 +80,7 @@ const SettingsScreen = ({ navigation }) => {
             <Switch
               value={darkMode}
               onValueChange={setDarkMode}
-              trackColor={{ false: '#e5e7eb', true: '#f11885ff' }}
+              trackColor={{ false: '#e5e7eb', true: '#Ff6f61' }}
               thumbColor="white"
             />
           </View>
@@ -92,7 +92,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <View style={styles.settingItem}>
             <View style={styles.settingContent}>
-              <Ionicons name="location-outline" size={24} color="#f11885ff" />
+              <Ionicons name="location-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Location Services</Text>
                 <Text style={styles.settingDescription}>Allow app to access your location</Text>
@@ -101,14 +101,14 @@ const SettingsScreen = ({ navigation }) => {
             <Switch
               value={locationServices}
               onValueChange={setLocationServices}
-              trackColor={{ false: '#e5e7eb', true: '#f11885ff' }}
+              trackColor={{ false: '#e5e7eb', true: '#Ff6f61' }}
               thumbColor="white"
             />
           </View>
 
           <TouchableOpacity style={[styles.settingItem, styles.clickableItem]}>
             <View style={styles.settingContent}>
-              <Ionicons name="lock-closed-outline" size={24} color="#f11885ff" />
+              <Ionicons name="lock-closed-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Change Password</Text>
                 <Text style={styles.settingDescription}>Update your account password</Text>
@@ -119,7 +119,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <TouchableOpacity style={[styles.settingItem, styles.clickableItem]}>
             <View style={styles.settingContent}>
-              <Ionicons name="document-text-outline" size={24} color="#f11885ff" />
+              <Ionicons name="document-text-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Privacy Policy</Text>
                 <Text style={styles.settingDescription}>Read our privacy terms</Text>
@@ -130,7 +130,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <TouchableOpacity style={[styles.settingItem, styles.clickableItem]}>
             <View style={styles.settingContent}>
-              <Ionicons name="book-outline" size={24} color="#f11885ff" />
+              <Ionicons name="book-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Terms of Service</Text>
                 <Text style={styles.settingDescription}>View our terms and conditions</Text>
@@ -146,7 +146,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <TouchableOpacity style={[styles.settingItem, styles.clickableItem]}>
             <View style={styles.settingContent}>
-              <Ionicons name="information-circle-outline" size={24} color="#f11885ff" />
+              <Ionicons name="information-circle-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>About Cake Shop</Text>
                 <Text style={styles.settingDescription}>Version 1.0.0</Text>
@@ -157,7 +157,7 @@ const SettingsScreen = ({ navigation }) => {
 
           <TouchableOpacity style={[styles.settingItem, styles.clickableItem]}>
             <View style={styles.settingContent}>
-              <Ionicons name="help-circle-outline" size={24} color="#f11885ff" />
+              <Ionicons name="help-circle-outline" size={24} color="#Ff6f61" />
               <View style={styles.settingText}>
                 <Text style={styles.settingLabel}>Help & Support</Text>
                 <Text style={styles.settingDescription}>Contact us for assistance</Text>
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    backgroundColor: '#f11885ff',
+    backgroundColor: '#Ff6f61',
     paddingVertical: 12,
     borderRadius: 10,
   },

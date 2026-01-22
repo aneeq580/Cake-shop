@@ -41,7 +41,7 @@ function FavoriteCard({ item, navigation }) {
 
 export default function FavoritesScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, backgroundColor: "#f9f9f9ff" }}>
+    <View style={{ flex: 1, backgroundColor: "#F5E6D3" }}>
       <SafeAreaView edges={['top']} style={styles.headerSafe}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Favourites</Text>
@@ -63,7 +63,7 @@ export default function FavoritesScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   headerSafe: {
-    backgroundColor: "#f9f9f9ff",
+    backgroundColor: "#F5E6D3",
   },
   header: {
     flexDirection: "row",
@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: "#f9f9f9ff",
+    backgroundColor: "#F5E6D3",
     borderBottomColor: "#efefef",
   },
   headerTitle: {
     fontSize: 28,
     fontFamily: "Bold",
-    color: "#f11885ff",
+    color: "#Ff6f61",
   },
   card: {
     backgroundColor: "#fff",
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   cardPrice: {
     fontSize: 16,
     fontFamily: "Bold",
-    color: "#f11885ff",
+    color: "#Ff6f61",
   },
   addBtn: {
     position: "absolute",
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     borderRadius: 13,
-    backgroundColor: "#f11885ff",
+    backgroundColor: "#Ff6f61",
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "#000",

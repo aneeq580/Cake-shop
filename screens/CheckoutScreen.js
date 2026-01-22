@@ -27,7 +27,7 @@ export default function CheckoutScreen({ navigation }) {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#f9f9f9ff',
+    backgroundColor: '#F5E6D3',
   },
   banner: {
     flexDirection: 'row',

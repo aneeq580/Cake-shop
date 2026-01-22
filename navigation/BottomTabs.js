@@ -58,7 +58,7 @@ export default function BottomTabs() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#f11885ff',
+        tabBarActiveTintColor: '#Ff6f61',
         tabBarInactiveTintColor: '#9ca3af',
       })}
     >
